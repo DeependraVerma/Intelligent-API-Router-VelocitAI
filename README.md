@@ -51,16 +51,34 @@ This project is an AI-powered intent classification and query routing system bui
 
 ## File Structure
 ```
-intent-query-router/
-│── agents/
-│   ├── intent_classifier_agent.py
-│   ├── financial_agent.py
-│   ├── news_agent.py
-│   ├── sentiment_agent.py
-│── agent_router.py
-│── app.py
-│── requirements.txt
-│── README.md
+Directory structure:
+└── deependraverma-intelligent-api-router-velocitai/
+    ├── README.md
+    ├── LICENSE
+    ├── agent_router.py
+    ├── main.py
+    ├── memory_handler.py
+    ├── project.py
+    ├── requirements.txt
+    ├── user_memory.json
+    ├── agents/
+    │   ├── finance_agent.py
+    │   ├── intent_classifier_agent.py
+    │   ├── news_agent.py
+    │   ├── sentiment_agent.py
+    │   ├── translation_agent.py
+    │   └── weather_agent.py
+    ├── tasks/
+    │   ├── finance_task.py
+    │   ├── news_task.py
+    │   └── tasks.py
+    └── tools/
+        ├── finance_tools.py
+        ├── news_tools.py
+        ├── sentiment_tools.py
+        ├── translation_tools.py
+        └── weather_tools.py
+
 ```
 
 ## Example Queries
