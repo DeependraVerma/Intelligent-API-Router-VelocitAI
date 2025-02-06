@@ -1,0 +1,13 @@
+transformers 
+google-generativeai
+langchain-google-genai
+yfinance 
+requests 
+googletrans 
+scikit-learn
+python-dotenv
+yahooquery
+spacy
+langchain-community
+langchain-groq
+streamlit
