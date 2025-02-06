@@ -1,106 +1,79 @@
 # Intent-Based Query Router
 
-This application demonstrates an intent-based query routing system using Streamlit, CrewAI, and Google Gemini.  It takes user input, classifies the intent and sentiment, routes the query to the appropriate agent, and then uses Google Gemini to refine and present the response.
+## Overview
+This project is an AI-powered intent classification and query routing system built using Streamlit, CrewAI, and Google's Gemini 1.5 Pro model. It classifies user queries into predefined intents (Financial, News, Sentiment) and processes them accordingly to generate relevant responses.
 
 ## Features
+- Classifies user queries into three intents: **Financial**, **News**, and **Sentiment**.
+- Uses **CrewAI** for routing queries to appropriate agents.
+- Utilizes **Google Gemini 1.5 Pro** for response generation.
+- Implements **Streamlit** for an interactive UI.
+- Ensures structured output for stock prices, news summaries, and sentiment analysis.
 
-* **Intent Classification:** Classifies user queries into predefined intents (currently financial, news, sentiment) using a custom agent (`intent_classifier_agent`).
-* **Sentiment Analysis:** Determines the sentiment (positive, negative, neutral) associated with the query.
-* **Agent Routing:** Routes the query to a specific agent based on the classified intent and sentiment.  This allows for specialized processing and responses.
-* **Google Gemini Integration:** Leverages the power of Google Gemini to further process the agent's response, providing concise and relevant information to the user.  This includes extracting key information (financial data), summarizing news, and providing sentiment summaries.
-* **Streamlit UI:** Provides a user-friendly interface for inputting queries and viewing responses.
-
+## Tech Stack
+- **Python**
+- **Streamlit**
+- **CrewAI**
+- **Google Generative AI SDK (Gemini 1.5 Pro)**
+- **AST (Abstract Syntax Trees)**
+- **OS (Environment Variable Handling)**
 
 ## Installation
-
-1. **Clone the repository:**
+1. Clone the repository:
    ```bash
-   git clone <repository_url>
-content_copy
-download
-Use code with caution.
-Markdown
+   git clone https://github.com/DeependraVerma/Intelligent-API-Router-VelocitAI.git
+   cd intent-query-router
+   ```
 
-Navigate to the project directory:
+2. Create a virtual environment and activate it:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
-cd <project_directory>
-content_copy
-download
-Use code with caution.
-Bash
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Install required libraries:
+4. Set up the Google Generative AI API key:
+   ```bash
+   export GEMINI_API_KEY='your_api_key_here'  # On Windows: set GEMINI_API_KEY=your_api_key_here
+   ```
 
-pip install -r requirements.txt
-content_copy
-download
-Use code with caution.
-Bash
+## Usage
+1. Run the Streamlit app:
+   ```bash
+   streamlit run app.py
+   ```
+2. Enter a query in the text box and click **Submit**.
+3. The system classifies the intent and generates a relevant response.
 
-Set up environment variables:
+## File Structure
+```
+intent-query-router/
+│── agents/
+│   ├── intent_classifier_agent.py
+│   ├── financial_agent.py
+│   ├── news_agent.py
+│   ├── sentiment_agent.py
+│── agent_router.py
+│── app.py
+│── requirements.txt
+│── README.md
+```
 
-Create a .env file in the project directory.
+## Example Queries
+- **Financial:** "What is the stock price of NVIDIA today?"
+- **News:** "What are the latest updates on the tech industry?"
+- **Sentiment:** "How are people reacting to Apple's latest iPhone release?"
 
-Add your Gemini API key:
+## Contributing
+Feel free to open issues or submit pull requests for enhancements.
 
-GEMINI_API_KEY=<your_gemini_api_key>
-content_copy
-download
-Use code with caution.
-Usage
+## License
+This project is licensed under the MIT License.
 
-Run the Streamlit app:
+## Contact
+For any questions, reach out at [your_email@example.com](mailto:deependra.verma00@gmail.com).
 
-streamlit run app.py
-content_copy
-download
-Use code with caution.
-Bash
-
-Enter your query in the text input field.
-
-Click the "Submit" button.
-
-The app will classify the intent and sentiment, route the query, and display the processed response.
-
-Examples
-
-Financial: "What's the current price of NVIDIA stock?"
-
-News: "Give me the latest news on Apple."
-
-Sentiment: "I'm so excited about the new iPhone!"
-
-Architecture
-
-User Input: The user enters a query via the Streamlit interface.
-
-Intent and Sentiment Classification: The intent_classifier_agent classifies the intent and sentiment of the query.
-
-Agent Routing: The agent_router directs the query to the appropriate agent based on the classified intent and sentiment. (Placeholder agents are assumed in this example; you'll need to implement your own.)
-
-Agent Response: The selected agent processes the query and returns a response.
-
-Gemini Processing: The response is passed to Google Gemini with a tailored prompt based on the intent. Gemini refines the response to extract key information, summarize, or provide a sentiment overview.
-
-Output: The processed response from Gemini is displayed in the Streamlit app.
-
-Further Development
-
-Implement Agents: Develop specific agents for each intent (financial, news, sentiment) to handle queries and retrieve relevant data.
-
-Error Handling: Enhance error handling to provide more informative messages to the user.
-
-Expand Intents: Add more intents to support a wider range of queries.
-
-Improve Prompt Engineering: Refine the prompts used with Google Gemini to optimize the quality and relevance of the responses.
-
-Integration with CrewAI: Integrate more deeply with CrewAI for task management and process automation.
-
-Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request if you have any suggestions or improvements.
-
-content_copy
-download
-Use code with caution.
