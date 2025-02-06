@@ -4,11 +4,9 @@ from tools.finance_tools import scrape_tool,search_tool
 from dotenv import load_dotenv
 import os
 
-
-# Load environment variables
 load_dotenv()
-os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+os.environ["GEMINI_API_KEY"] = os.getenv("GEMINI_API_KEY")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 
 
@@ -19,10 +17,10 @@ data_collector = Agent(
     tools=[scrape_tool, search_tool],
     verbose=True,
     allow_delegation=True,
-    llm = LLM(
-    model="gemini/gemini-1.5-pro",
-    temperature=0.2
-)
+    llm=LLM(
+        model="gemini/gemini-1.5-flash-8b",
+        temperature=0.2
+    )
 )
 
 
@@ -34,8 +32,8 @@ report_writer = Agent(
 
         f"**Current Stock Price:** in respective currency'",
     backstory='You are skilled at creating clear and concise financial reports.',
-    llm = LLM(
-    model="gemini/gemini-1.5-pro",
-    temperature=0.2
-)
+    llm=LLM(
+        model="gemini/gemini-1.5-flash-8b",
+        temperature=0.2
+    )
 )
